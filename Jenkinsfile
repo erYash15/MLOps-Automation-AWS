@@ -15,6 +15,7 @@ pipeline {
             steps {
                 echo 'Setting up Python environment...'
                 sh '''
+                apt install python3.12-venv
                 python3 -m venv ${VENV_DIR}
                 source ${VENV_DIR}/bin/activate
                 pip install --upgrade pip
