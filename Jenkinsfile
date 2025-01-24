@@ -7,7 +7,6 @@ pipeline {
             }
         stage('Setup Python 2') {
             steps {
-
                 sh 'which python3'
             }
         }
