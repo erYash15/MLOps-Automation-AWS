@@ -7,7 +7,6 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo 'Cloning repository...'
-                echo "Branch name: ${env.BRANCH_NAME}"
                 git branch: "main", url: 'https://github.com/erYash15/MLOps-Automation-AWS.git'
             }
         }
@@ -15,7 +14,7 @@ pipeline {
             steps {
                 echo 'Setting up Python environment...'
                 sh '''
-                apt install python3.12-venv
+                sudo apt-get install -y python3 python3-venv python3-pip
                 python3 -m venv ${VENV_DIR}
                 source ${VENV_DIR}/bin/activate
                 pip install --upgrade pip
@@ -34,11 +33,8 @@ pipeline {
                 echo 'Running tests...'
                 sh '''
                 source ${VENV_DIR}/bin/activate
-
-                python3 -m unittest discover -s tests -p "*.py" > result.xml
+                python3 -m unittest discover -s tests -p "*.py"
                 '''
-                // Archiving test results
-                junit 'results.xml'
             }
         }
         stage('Cleanup') {
