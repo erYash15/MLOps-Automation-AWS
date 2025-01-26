@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.9-slim' // Replace with your Docker Hub image
+        }
+    }
     environment {
         VENV_DIR = 'venv' // Directory for the virtual environment
     }
