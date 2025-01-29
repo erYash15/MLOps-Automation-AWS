@@ -56,7 +56,6 @@ pipeline {
             steps {
                 echo 'Cleaning up environment...'
                 sh '''
-                deactivate
                 rm -rf venv
                 '''
             }
