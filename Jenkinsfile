@@ -1,7 +1,21 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.9-slim' // Replace with your Docker Hub image
+    stages {
+        stage('Pull Docker Image') {
+            steps {
+                script {
+                    // Pull the Docker image from Docker Hub
+                    sh 'docker pull python:3.9-slim'
+                }
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    // Run a command inside the Docker container
+                    sh 'docker run --rm python:3.9-slim python --version'
+                }
+            }
         }
     }
     environment {
