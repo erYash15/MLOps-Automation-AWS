@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     stages {
         stage('Pull Docker Image') {
             steps {
@@ -19,11 +19,6 @@ pipeline {
                 }
             }
         }
-    }
-    environment {
-        VENV_DIR = 'venv' // Directory for the virtual environment
-    }
-    stages {
         stage('Clone Repository') {
             steps {
                 echo 'Cloning repository...'
@@ -32,6 +27,7 @@ pipeline {
         }
         stage('Setup Environment') {
             steps {
+                VENV_DIR = 'venv' // Directory for the virtual environment
                 echo 'Setting up Python environment...'
                 sh '''
                 python3 -m venv ${VENV_DIR}
