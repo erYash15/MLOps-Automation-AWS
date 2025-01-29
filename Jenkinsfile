@@ -47,6 +47,7 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 sh '''
+                . venv/bin/activate
                 python3 -m unittest discover -s tests -p "*.py"
                 '''
             }
