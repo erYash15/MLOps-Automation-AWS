@@ -6,6 +6,7 @@ pipeline {
             steps {
                 script {
                     // Pull the Docker image from Docker Hub
+                    sh 'python3 --version'
                     sh 'docker --version'
                     sh 'docker pull python:3.9-slim'
                 }
