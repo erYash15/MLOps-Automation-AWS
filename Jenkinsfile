@@ -6,7 +6,6 @@ pipeline {
             steps {
                 script {
                     // Pull the Docker image from Docker Hub
-                    sh 'python3 --version'
                     sh 'docker --version'
                     sh 'docker pull python:3.9-slim'
                 }
@@ -31,7 +30,6 @@ pipeline {
             steps {
                 echo 'Setting up Python environment...'
                 sh '''
-                python3 --version
                 python3 -m venv venv
                 . venv/bin/activate
                 pip install --upgrade pip setuptools wheel
