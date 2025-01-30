@@ -26,8 +26,8 @@ pipeline {
                 script {
                     def branchName = sh(script: 'echo ${GIT_BRANCH} | cut -d"/" -f2', returnStdout: true).trim()
                     echo "Branch name is: ${branchName}"
+                    git branch: "${branchName}", url: 'https://github.com/erYash15/MLOps-Automation-AWS.git'
                 }
-                git branch: "${branchName}", url: 'https://github.com/erYash15/MLOps-Automation-AWS.git'
             }
         }
         stage('Setup Environment') {
