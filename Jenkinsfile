@@ -23,7 +23,9 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo 'Cloning repository...'
-                git branch: "${GIT_BRANCH}", url: 'https://github.com/erYash15/MLOps-Automation-AWS.git'
+                def branchName = sh(script: 'echo ${GIT_BRANCH} | cut -d"/" -f2', returnStdout: true).trim()
+                echo "Branch name is: ${branchName}"
+                git branch: "${branchName}", url: 'https://github.com/erYash15/MLOps-Automation-AWS.git'
             }
         }
         stage('Setup Environment') {
