@@ -23,7 +23,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo 'Cloning repository...'
-                git branch: "main", url: 'https://github.com/erYash15/MLOps-Automation-AWS.git'
+                git branch: "${BRANCH_NAME}", url: 'https://github.com/erYash15/MLOps-Automation-AWS.git'
             }
         }
         stage('Setup Environment') {
