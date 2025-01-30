@@ -44,6 +44,7 @@ pipeline {
                 . venv/bin/activate
                 git config --unset-all core.hooksPath
                 chmod +x ./pre-commit.sh
+                ./pre-commit.sh
                 pre-commit install
                 pre-commit run -a
                 '''
