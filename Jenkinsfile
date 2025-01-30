@@ -40,7 +40,12 @@ pipeline {
         stage('Lint Code') {
             steps {
                 echo 'Linting code...'
-                echo 'TODO'
+                sh '''
+                . venv/bin/activate
+                ./pre-commit.sh
+                pre-commit install
+                pre-commit run -a
+                '''
             }
         }
         stage('Run Tests') {
