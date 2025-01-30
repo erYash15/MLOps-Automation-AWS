@@ -3,3 +3,6 @@ pandas
 matplotlib
 seaborn
 unittest2
+black
+isort 
+pre-commit
