@@ -42,7 +42,7 @@ pipeline {
                 echo 'Linting code...'
                 sh '''
                 . venv/bin/activate
-                ./pre-commit.sh
+                chmod +x ./pre-commit.sh
                 pre-commit install
                 pre-commit run -a
                 '''

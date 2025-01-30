@@ -1,8 +1,3 @@
-#!/bin/bash
-
-set -e  # Exit immediately if any command fails
-set -x  # Print commands before execution (debug mode)
-
 # Install required tools
 echo "Installing linting tools..."
 
